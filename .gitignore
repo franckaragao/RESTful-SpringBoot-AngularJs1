@@ -55,3 +55,10 @@ RemoteSystemsTempFiles/
 target/
 Servers/
 /Servers
+
+# Spring boot
+
+mvnw.cmd
+mvnw
+.mvnw
+.mvnw.cmd
