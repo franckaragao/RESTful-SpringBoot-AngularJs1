@@ -42,16 +42,27 @@ public class ClienteController {
 		return new ResponseEntity<>(listClientes, HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, value = "/clientes/{id}")
-	public ResponseEntity<Cliente> deleteCliente(@PathVariable Long id){
+	@RequestMapping(method = RequestMethod.GET, value = "/clientes/{id}")
+	public ResponseEntity<Cliente> getById(@PathVariable Long id){
 			
 		Cliente cliente = clienteService.getById(id);
+		if(cliente == null){
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(cliente, HttpStatus.FOUND);
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE, value = "/clientes/{id}")
+	public ResponseEntity<Cliente> deleteCliente(@PathVariable Long id){
+		
+		Cliente cliente = new Cliente();
+		cliente.setId(id);
 		clienteService.delete(cliente);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "/clientes", consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.PUT, value = "/clientes")
 	public ResponseEntity<Cliente> updateCliente(@RequestBody Cliente cliente){
 			
 		Cliente clienteUpdated = clienteService.update(cliente);
