@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifpb.ads.ws.model.Cliente;
@@ -36,11 +37,11 @@ public class ClienteController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/clientes", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Cliente>> getAll(){
-		
 		List<Cliente> listClientes = clienteService.getAll();
-		
+
 		return new ResponseEntity<>(listClientes, HttpStatus.OK);
 	}
+	
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/clientes/{id}")
 	public ResponseEntity<Cliente> getById(@PathVariable Long id){
@@ -50,6 +51,17 @@ public class ClienteController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(cliente, HttpStatus.FOUND);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/clientes/query", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Cliente>> findByNome(@RequestParam("nome") String nome){
+		List<Cliente> listClientes = clienteService.getAll();
+		
+		if (nome != null && !nome.trim().isEmpty()) {
+			listClientes = this.clienteService.findByNome(nome);
+		}
+		
+		return new ResponseEntity<>(listClientes, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/clientes/{id}")

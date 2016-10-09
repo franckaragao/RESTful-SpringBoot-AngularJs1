@@ -31,6 +31,10 @@ public class ClienteService {
 		return clienteRepository.findOne(id);
 	}
 	
+	public List<Cliente> findByNome(String nome){
+		return clienteRepository.findByNomeStartingWithIgnoreCase(nome);
+	}
+	
 	public void delete(Cliente cliente){
 		clienteRepository.delete(cliente);
 	}
