@@ -1,4 +1,4 @@
-package br.edu.ifpb.ads.model;
+package br.edu.ifpb.ads.ws.model;
 
 /**
  * 
