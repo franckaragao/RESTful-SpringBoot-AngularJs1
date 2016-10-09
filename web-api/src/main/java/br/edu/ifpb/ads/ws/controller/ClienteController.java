@@ -26,7 +26,7 @@ public class ClienteController {
 	@Autowired
 	ClienteService clienteService;
 
-	@RequestMapping(method = RequestMethod.POST, value = "/clientes", consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.POST, value = "/clientes", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Cliente> saveCliente(@RequestBody Cliente cliente){
 			
 		clienteService.save(cliente);
@@ -34,7 +34,7 @@ public class ClienteController {
 		return new ResponseEntity<Cliente>(HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/clientes", produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.GET, value = "/clientes", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Cliente>> getAll(){
 		
 		List<Cliente> listClientes = clienteService.getAll();

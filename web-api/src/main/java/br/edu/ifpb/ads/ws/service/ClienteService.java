@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import br.edu.ifpb.ads.ws.model.Cliente;
 import br.edu.ifpb.ads.ws.repository.ClienteRepository;
 
+/**
+ * 
+ * @author franck
+ *
+ */
 @Service
 public class ClienteService {
 	
