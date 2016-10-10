@@ -1,2 +1,5 @@
 # Web service (RESTful) com Spring Boot
-Repositório dedicado a estudo de Spring Boot (RESTful) web-api sendo consumido pelo AngularJs
+# Cliente com AngularJs
+###Repositório dedicado a estudo de Spring Boot e AngulaJs
+* Spring Boot (RESTful) web-api.
+* Consumindo API com AngularJs.
