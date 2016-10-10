@@ -17,10 +17,10 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr ng-repeat="cliente in clientes">
 					<td class="aw-table-checkbox"><input type="checkbox"/></td>
-					<td>10</td>
-					<td>teste</td>
+					<td>{{cliente.id}}</td>
+					<td>{{cliente.nome}}</td>
 				</tr>
 			</tbody>
 		</table>
