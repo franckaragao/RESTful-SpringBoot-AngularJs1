@@ -26,7 +26,8 @@ appClient.controller('indexController', function($scope, $http) {
 			data: $scope.cliente,
 
 		}).then(function onSuccessCallBack(response){
-			$scope.clientes.push(response.data);
+			getClientes();
+			$scope.cancelarAlteracao();
 		},
 
 		function onErrorCallBack(response){
@@ -49,6 +50,15 @@ appClient.controller('indexController', function($scope, $http) {
 
 		});
 	};
+	
+	$scope.updateClientes = function(c){
+		$scope.cliente = angular.copy(c);
+	}
+	
+	$scope.cancelarAlteracao = function(){
+		$scope.cliente = {};
+	}
+	
 	getClientes();
 
 });

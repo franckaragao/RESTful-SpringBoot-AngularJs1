@@ -7,22 +7,22 @@
 </head>
 <body ng-controller="indexController">
 
-<div class="row"></div>
-<div class="row">
+<div class="row" style="margin-top: 10px;">
 	<div class="col-sm-3  form-group">
 		<input type="text" class="form-control" ng-model="cliente.nome" aria-describedby="basic-addon1"/>
 	</div>
 	<div class="col-sm-3  form-group">
 		<button class="btn  btn-primary" type="submit" ng-click="salvarCliente()">Salvar</button>
+		<button class="btn  btn-default" type="submit" ng-click="cancelarAlteracao()">Cancelar</button>
 	</div>
 </div>
 	<div class="table-responsive">
 		<table class="table  table-striped  table-bordered  table-hover  table-condensed  js-sticky-table">
 			<thead>
 				<tr>
-					<th>#</th>
-					<th><a href="">Código</a></th>
-					<th><a href="">Nome</a></th>
+					<th width="5%">#</th>
+					<th width="30%"><a href="">Código</a></th>
+					<th width="50%"><a href="">Nome</a></th>
 					<th width="10%">Ações</th>
 				</tr>
 			</thead>
@@ -31,7 +31,12 @@
 					<td class="aw-table-checkbox"><input type="checkbox"/></td>
 					<td>{{cliente.id}}</td>
 					<td>{{cliente.nome}}</td>
-					<td><button class="btn  btn-danger" type="submit" ng-click="removerCliente(cliente)">Remover</button></td>
+					<td>
+						<div class="row form-group" style="text-align: center;">
+								<button class="btn  btn-danger" type="submit" ng-click="removerCliente(cliente)">Remover</button>
+								<button class="btn  btn-warning" type="submit" ng-click="updateClientes(cliente)">Alterar</button>
+						</div>
+					</td>
 				</tr>
 			</tbody>
 		</table>
