@@ -7,8 +7,17 @@
 </head>
 <body ng-controller="indexController">
 
+<div class="row"></div>
+<div class="row">
+	<div class="col-sm-3  form-group">
+		<input type="text" class="form-control" ng-model="cliente.nome" aria-describedby="basic-addon1"/>
+	</div>
+	<div class="col-sm-3  form-group">
+		<button class="btn  btn-primary" type="submit" ng-click="salvarCliente()">Salvar</button>
+	</div>
+</div>
 	<div class="table-responsive">
-		<table class="table table-striped table-condensed">
+		<table class="table  table-striped  table-bordered  table-hover  table-condensed  js-sticky-table">
 			<thead>
 				<tr>
 					<th>#</th>

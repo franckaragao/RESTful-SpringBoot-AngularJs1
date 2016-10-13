@@ -30,9 +30,9 @@ public class ClienteController {
 	@RequestMapping(method = RequestMethod.POST, value = "/clientes", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Cliente> saveCliente(@RequestBody Cliente cliente){
 			
-		clienteService.save(cliente);
+		Cliente ClienteSalvo = clienteService.save(cliente);
 		
-		return new ResponseEntity<Cliente>(HttpStatus.CREATED);
+		return new ResponseEntity<Cliente>(ClienteSalvo, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/clientes", produces = MediaType.APPLICATION_JSON_VALUE)
