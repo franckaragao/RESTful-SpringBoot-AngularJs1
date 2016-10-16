@@ -1,3 +1,3 @@
-var appCliente = angular.module("appCliente", ['ngRoute', 'ngDialog']);
+var appCliente = angular.module("appCliente", ['ngRoute']);
 
 
