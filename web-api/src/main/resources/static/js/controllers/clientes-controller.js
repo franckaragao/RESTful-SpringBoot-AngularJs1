@@ -17,22 +17,6 @@ appCliente.controller('clienteController', function($scope, $http) {
 		});
 	};
 
-	$scope.salvarCliente = function() {
-		$http({
-			method : 'POST',
-			url : 'http://localhost:8080/clientes',
-			data : $scope.cliente,
-
-		}).then(function onSuccessCallBack(response) {
-			getClientes();
-			$scope.cancelarAlteracao();
-		},
-
-		function onErrorCallBack(response) {
-
-		});
-	};
-
 	$scope.removerCliente = function(cliente) {
 		$http({
 			method : 'DELETE',
@@ -53,9 +37,6 @@ appCliente.controller('clienteController', function($scope, $http) {
 		$scope.cliente = angular.copy(c);
 	}
 
-	$scope.cancelarAlteracao = function() {
-		$scope.cliente = {};
-	}
 
 	getClientes();
 
