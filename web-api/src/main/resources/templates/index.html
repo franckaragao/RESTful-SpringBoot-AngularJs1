@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html ng-app="appCliente">
 <head>
+<base href="/" />
 <meta charset="UTF-8" />
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css"
-	href="/vendors/bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+<title>Brand</title>
+<link rel="stylesheet" type="text/css" href="/vendors/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/vendors/font-awesome-4.6.3/css/font-awesome.min.css" />
 
 </head>
-<body>
+<body ng-controller="mainController">
 
-	<nav class="navbar navbar-inverse"></nav>
+	<div class="slide-animate" ng-include="'/view/fragments/navBar.html'"></div>
 
-	<div class="content">
-		<div ng-view="view"></div>
-	</div>
+	{{$routeParams}}
+	<div ng-view="content"></div>
 
 
 	<script src="/js/vendors/angular.min.js"></script>
@@ -23,8 +21,10 @@
 	<script src="/js/app.js"></script>
 	<script src="/js/config/route-config.js"></script>
 
+	<script src="/js/controllers/main-controller.js"></script>
 	<script src="/js/controllers/clientes-controller.js"></script>
 	<script src="/js/controllers/cliente-edit-controller.js"></script>
+	<script src="/js/controllers/cliente-detail-controller.js"></script>
 
 	<script src="/vendors/jQuery/jquery-3.1.1.min.js"></script>
 	<script src="/vendors/bootstrap/js/bootstrap.min.js"></script>

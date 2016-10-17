@@ -50,7 +50,7 @@ public class ClienteController {
 		if(cliente == null){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(cliente, HttpStatus.FOUND);
+		return new ResponseEntity<>(cliente, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/clientes/query", produces = MediaType.APPLICATION_JSON_VALUE)
