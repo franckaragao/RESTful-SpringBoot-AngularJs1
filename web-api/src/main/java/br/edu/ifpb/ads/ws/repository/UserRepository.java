@@ -12,5 +12,7 @@ import br.edu.ifpb.ads.ws.model.User;
  */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
+	
+	public User findByUserNome(String userNome);
 
 }
