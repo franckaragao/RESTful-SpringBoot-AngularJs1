@@ -5,21 +5,21 @@
 
 	</div>
 	<div class="container-fluid">
-		<form name="novo-cliente" novalidate>
+		<form name="frmCliente" novalidate>
 			<div class="form-group">
 				<label for="identificacao">Nome</label> 
 				<input id="identificacao" required type="text" class="form-control" name="nome" ng-model="cliente.nome"/>
-				<div><span class="alert alert-danger">Campo 'Nome' deve ser preenchido</span></div>
+				<span ng-show="frmCliente.nome.$dirty && frmCliente.nome.$error.required" class="alert alert-danger">Campo 'Nome' deve ser preenchido</span>
 			</div>
 
 			<div class="form-group">
 				<label for="descricao">Descrição</label>
-				<textarea id="descricao" rows="3" class="form-control"></textarea>
+				<textarea id="descricao" name="descricao" rows="3" class="form-control"></textarea>
 			</div>
 		</form>
 		
 		<div class="form-group">
-			<button class="btn  btn-primary" type="submit"
+			<button class="btn  btn-primary" type="submit" 
 				ng-click="salvarCliente(cliente)">Salvar</button>
 			<button class="btn  btn-default" type="submit" data-dismiss="modal"
 				ng-click="cancelarAlteracao()">Cancelar</button>
