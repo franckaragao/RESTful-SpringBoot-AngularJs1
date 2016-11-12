@@ -12,3 +12,17 @@
   -o-transition:1s linear all;
   transition:1s linear all;
 }
+
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.Absolute-Center.is-Responsive {
+  width: 50%; 
+  height: 50%;
+  min-width: 300px;
+  max-width: 600px;
+  padding: 40px;
+}

@@ -19,7 +19,7 @@
 		</form>
 		
 		<div class="form-group">
-			<button class="btn  btn-primary" type="submit" 
+			<button class="btn  btn-primary" type="submit" ng-disabled="frmCliente.$invalid"
 				ng-click="salvarCliente(cliente)">Salvar</button>
 			<button class="btn  btn-default" type="submit" data-dismiss="modal"
 				ng-click="cancelarAlteracao()">Cancelar</button>

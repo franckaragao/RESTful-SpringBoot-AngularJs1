@@ -10,13 +10,15 @@ appCliente.controller('ClienteEditController', function ($scope, $http, $locatio
 	
 			}).then(function onSuccessCallBack(response) {
 				$location.path('/clientes')
+				growl.success("Cliente salvo com sucesso!");
 			},
 	
 			function onErrorCallBack(response) {
 	
 			});
+			
 		}else{
-			growl.error("Ups, error message here!");
+			growl.error("Cliente inválido!");
 		}
 	};
 	

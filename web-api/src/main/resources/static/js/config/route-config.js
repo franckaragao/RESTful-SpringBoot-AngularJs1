@@ -11,6 +11,10 @@ appCliente.config(function($routeProvider, $locationProvider) {
 	}).when("/clientes/:clienteId", {
 		templateUrl : 'view/cliente/cliente-detail.html',
 		controller : 'clienteDetailController'	
+	
+	}).when("/", {
+		templateUrl : 'view/login.html',
+		controller: 'loginController'
 			
 	}).otherwise({
 		redirectTo : '/'
