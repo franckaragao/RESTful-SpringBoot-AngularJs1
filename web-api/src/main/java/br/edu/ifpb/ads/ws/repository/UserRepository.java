@@ -1,9 +1,11 @@
 package br.edu.ifpb.ads.ws.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.ifpb.ads.ws.model.User;
+import br.edu.ifpb.ads.ws.model.Usuario;
 
 /**
  * 
@@ -11,8 +13,8 @@ import br.edu.ifpb.ads.ws.model.User;
  *
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserRepository extends JpaRepository<Usuario, Long>{
 	
-	public User findByUserNome(String userNome);
+	public Optional<Usuario> findByUserNome(String userNome);
 
 }

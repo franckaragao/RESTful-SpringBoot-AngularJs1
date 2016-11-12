@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpb.ads.ws.model.User;
+import br.edu.ifpb.ads.ws.model.Usuario;
 import br.edu.ifpb.ads.ws.service.UserService;
 
 /**
@@ -33,10 +33,10 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<User> save(@RequestBody User user){
+	public ResponseEntity<Usuario> save(@RequestBody Usuario user){
 		
-		User userSaved = userService.save(user);
+		Usuario userSaved = userService.save(user);
 		
-		return new ResponseEntity<User>(userSaved, HttpStatus.CREATED);
+		return new ResponseEntity<Usuario>(userSaved, HttpStatus.CREATED);
 	}
 }

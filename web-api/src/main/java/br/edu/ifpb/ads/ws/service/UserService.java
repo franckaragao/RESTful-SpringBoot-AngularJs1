@@ -1,11 +1,12 @@
 package br.edu.ifpb.ads.ws.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.ifpb.ads.ws.model.User;
+import br.edu.ifpb.ads.ws.model.Usuario;
 import br.edu.ifpb.ads.ws.repository.UserRepository;
 
 /**
@@ -24,7 +25,7 @@ public class UserService {
 	 * @param user
 	 * @return
 	 */
-	public User save(User user) {
+	public Usuario save(Usuario user) {
 		return userRepository.save(user);
 	}
 	
@@ -32,7 +33,7 @@ public class UserService {
 	 * 
 	 * @param user
 	 */
-	public void remove(User user) {
+	public void remove(Usuario user) {
 		userRepository.delete(user);
 	}
 	
@@ -40,7 +41,7 @@ public class UserService {
 	 * 
 	 * @return
 	 */
-	public List<User> findAll(){
+	public List<Usuario> findAll(){
 		return userRepository.findAll();
 	}
 	
@@ -49,8 +50,17 @@ public class UserService {
 	 * @param id
 	 * @return
 	 */
-	public User findById(Long id) {
+	public Usuario findById(Long id) {
 		return userRepository.getOne(id);
+	}
+	
+	/**
+	 * 
+	 * @param userName
+	 * @return
+	 */
+	public Optional<Usuario> findByName(String userName) {
+		return userRepository.findByUserNome(userName);
 	}
 
 }
