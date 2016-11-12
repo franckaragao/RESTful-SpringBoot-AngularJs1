@@ -1,0 +1,14 @@
+.aqt-growl {
+  padding-top: 25px;
+}
+
+.growl-container {
+	margin-top: 50px !important;
+}
+.growl-container > .growl-item.ng-enter,
+.growl-container > .growl-item.ng-leave {
+  -webkit-transition:1s linear all;
+  -moz-transition:1s linear all;
+  -o-transition:1s linear all;
+  transition:1s linear all;
+}

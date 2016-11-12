@@ -1,3 +1,3 @@
-var appCliente = angular.module("appCliente", ['ngRoute', 'angular-growl']);
+var appCliente = angular.module("appCliente", ['ngRoute', 'angular-growl', 'ngAnimate']);
 
 
