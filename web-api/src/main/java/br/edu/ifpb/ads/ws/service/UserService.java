@@ -3,6 +3,7 @@ package br.edu.ifpb.ads.ws.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.edu.ifpb.ads.ws.model.User;
 import br.edu.ifpb.ads.ws.repository.UserRepository;
@@ -12,6 +13,7 @@ import br.edu.ifpb.ads.ws.repository.UserRepository;
  * @author franck
  *
  */
+@Service
 public class UserService {
 	
 	@Autowired
