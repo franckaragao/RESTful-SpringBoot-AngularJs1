@@ -1,4 +1,4 @@
-appCliente.controller('clientesController', function($scope, $http) {
+appCliente.controller('clientesController', function($scope, $http, dialogs) {
 	
 	$scope.clientes = [];
 	
@@ -17,6 +17,14 @@ appCliente.controller('clientesController', function($scope, $http) {
 	};
 
 	$scope.removerCliente = function(cliente) {
+		var dlg = dialogs.confirm('Remoção de Cliente', 'Deseja remover?');
+		dlg.result.then(function(btn){
+			remover(cliente);
+		},function(btn){
+		});
+	};
+	
+	var remover = function(cliente) {
 		$http({
 			method : 'DELETE',
 			url : '/clientes/' + cliente.id,

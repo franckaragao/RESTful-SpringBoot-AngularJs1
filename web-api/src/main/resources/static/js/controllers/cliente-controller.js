@@ -13,7 +13,7 @@ appCliente.controller('clienteController', function($scope, $http, $location, $r
 		
 				}).then(function onSuccessCallBack(response) {
 					$location.path('/clientes')
-					growl.success("Cliente salvo com sucesso!");
+					growl.success("Cliente atualizado com sucesso!");
 				},
 		
 				function onErrorCallBack(response) {
@@ -32,7 +32,6 @@ appCliente.controller('clienteController', function($scope, $http, $location, $r
 				},
 		
 				function onErrorCallBack(response) {
-		
 				});
 			}
 		}else{
