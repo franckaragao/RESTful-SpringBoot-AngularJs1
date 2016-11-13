@@ -6,7 +6,7 @@ appCliente.config(function($routeProvider, $locationProvider) {
 			
 	}).when("/novoCliente", {
 		templateUrl : 'view/cliente/cliente-edit.html',
-		controller : 'ClienteEditController'
+		controller : 'clienteController'
 			
 	}).when("/clientes/:clienteId", {
 		templateUrl : 'view/cliente/cliente-detail.html',
