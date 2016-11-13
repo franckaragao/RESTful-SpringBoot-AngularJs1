@@ -1,25 +1,40 @@
-appCliente.controller('clienteController', function($scope, $http, $location, growl) {
+appCliente.controller('clienteController', function($scope, $http, $location, $routeParams, growl) {
 
-	$scope.clientes = [];
 	$scope.cliente = {};
 	
 	$scope.salvarCliente = function(cliente) {
 		
 		if($scope.frmCliente.$valid){
-			$http({
-				method : 'POST',
-				url : 'http://localhost:8080/clientes',
-				data : cliente,
-	
-			}).then(function onSuccessCallBack(response) {
-				$location.path('/clientes')
-				growl.success("Cliente salvo com sucesso!");
-			},
-	
-			function onErrorCallBack(response) {
-	
-			});
-			
+			if($scope.cliente.id){
+				$http({
+					method : 'PUT',
+					url : '/clientes',
+					data : cliente,
+		
+				}).then(function onSuccessCallBack(response) {
+					$location.path('/clientes')
+					growl.success("Cliente salvo com sucesso!");
+				},
+		
+				function onErrorCallBack(response) {
+		
+				});
+				
+			}else{
+				$http({
+					method : 'POST',
+					url : '/clientes',
+					data : cliente,
+		
+				}).then(function onSuccessCallBack(response) {
+					$location.path('/clientes')
+					growl.success("Cliente salvo com sucesso!");
+				},
+		
+				function onErrorCallBack(response) {
+		
+				});
+			}
 		}else{
 			growl.error("Cliente inválido!");
 		}
@@ -29,42 +44,15 @@ appCliente.controller('clienteController', function($scope, $http, $location, gr
 		$location.path('/clientes')
 
 	}
-
-	var getClientes = function() {
-		$http({
-			method : 'GET',
-			url : 'http://localhost:8080/clientes'
-
-		}).then(function onSuccessCallBack(response) {
-			$scope.clientes = response.data;
-		},
-
-		function onErrorCallBack(response) {
-
-		});
-	};
-
-	$scope.removerCliente = function(cliente) {
-		$http({
-			method : 'DELETE',
-			url : 'http://localhost:8080/clientes/' + cliente.id,
-
-		}).then(function onSuccessCallBack(response) {
-
-			var index = $scope.clientes.indexOf(cliente);
-			$scope.clientes.splice(index, 1);
-		},
-
-		function onErrorCallBack(response) {
-
-		});
-	};
-
-	$scope.updateClientes = function(c) {
-		$location.path('/novoCliente')
-		$scope.cliente = angular.copy(c);
-	}
 	
-	getClientes();
+	if($routeParams.clienteId){
+		$http.get("/clientes/"+$routeParams.clienteId).then(function (response){
+			$scope.cliente= response.data;
+			
+		}, function (response){
+			console.log("Erro na requisição "+response);
+			
+		});
+	}
 
 });

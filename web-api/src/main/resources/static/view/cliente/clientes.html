@@ -25,10 +25,8 @@
 						<button class="btn  btn-danger btn-xs" type="submit" ng-click="removerCliente(cliente)">
 							<i class="fa  fa-trash"></i>
 						</button>
-						<button class="btn  btn-warning btn-xs" type="submit" ng-click="updateClientes(cliente)">
-							<i class="fa  fa-pencil"></i>
-						</button>
-						<a href="clientes/{{cliente.id}}" class="btn btn-default btn-xs"><i class="fa fa-search" aria-hidden="true"></i></a>
+						<a href="/editCliente/{{cliente.id}}" class="btn  btn-warning btn-xs"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+						<a href="/viewCliente/{{cliente.id}}" class="btn btn-default btn-xs"><i class="fa fa-search" aria-hidden="true"></i></a>
 					</div>
 				</td>
 			</tr>
