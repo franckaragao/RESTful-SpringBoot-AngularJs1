@@ -1,20 +1,14 @@
-appCliente.controller('clientesController', function($scope, $http, dialogs) {
+appCliente.controller('clientesController', function($scope, clienteService, dialogs) {
 	
 	$scope.clientes = [];
 	
-	var getClientes = function() {
-		$http({
-			method : 'GET',
-			url : 'http://localhost:8080/clientes'
+	clienteService.findAll().$promise.then(
+		function (clientes) {
+			$scope.clientes = clientes;
+		}, 
+		function (response) {
 
-		}).then(function onSuccessCallBack(response) {
-			$scope.clientes = response.data;
-		},
-
-		function onErrorCallBack(response) {
-
-		});
-	};
+	});
 
 	$scope.removerCliente = function(cliente) {
 		var dlg = dialogs.confirm('Remoção de Cliente', 'Deseja remover?');
@@ -25,20 +19,13 @@ appCliente.controller('clientesController', function($scope, $http, dialogs) {
 	};
 	
 	var remover = function(cliente) {
-		$http({
-			method : 'DELETE',
-			url : '/clientes/' + cliente.id,
-
-		}).then(function onSuccessCallBack(response) {
-
-			var index = $scope.clientes.indexOf(cliente);
-			$scope.clientes.splice(index, 1);
-		},
-
-		function onErrorCallBack(response) {
+		clienteService.remove(cliente.id).$promise.then(
+			function(response) {
+				var index = $scope.clientes.indexOf(cliente);
+				$scope.clientes.splice(index, 1);
+			},
+			function(response) {
 
 		});
 	};
-	
-	getClientes();
 });

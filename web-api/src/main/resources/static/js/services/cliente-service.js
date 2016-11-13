@@ -22,6 +22,14 @@ angular.module('clienteServices', ['ngResource'])
 	
 	this.getById = function(clienteId){
 		return resourceService.get({clienteId: clienteId});
+	};
+	
+	this.findAll = function() {
+		return resourceService.query();
+	}
+	
+	this.remove = function(clienteId) {
+		return resourceService.delete({clienteId: clienteId});
 	}
 	
 });

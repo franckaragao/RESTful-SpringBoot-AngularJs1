@@ -19,11 +19,11 @@ appCliente.controller('clienteController', function($scope, clienteService, $loc
 			} else {
 				clienteService.saveCliente(cliente).$promise.then(
 
-				function(value) {
-					$location.path('/clientes')
-					growl.success("Cliente salvo com sucesso!");
-
-				}, function(error) {
+					function(value) {
+						$location.path('/clientes')
+						growl.success("Cliente salvo com sucesso!");
+	
+					}, function(error) {
 
 				});
 			}
@@ -43,7 +43,7 @@ appCliente.controller('clienteController', function($scope, clienteService, $loc
 
 			}, function(response) {
 				console.log("Erro na requisição " + response);
-			});
+		});
 	}
 
 });
