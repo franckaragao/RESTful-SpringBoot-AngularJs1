@@ -3,7 +3,6 @@ angular.module('clienteServices', ['ngResource'])
 .factory('resourceService', function($resource) {
 	
 	return $resource('/clientes/:clienteId', null, {
-		
 		update : {
 			method: 'PUT'
 		}
@@ -26,10 +25,9 @@ angular.module('clienteServices', ['ngResource'])
 	
 	this.findAll = function() {
 		return resourceService.query();
-	}
+	};
 	
 	this.remove = function(clienteId) {
 		return resourceService.delete({clienteId: clienteId});
-	}
-	
+	};
 });
