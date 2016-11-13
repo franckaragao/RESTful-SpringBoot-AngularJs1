@@ -22,9 +22,7 @@
 				<td>{{cliente.nome}}</td>
 				<td>
 					<div style="text-align: center;">
-						<button class="btn  btn-danger btn-xs" type="submit" ng-click="removerCliente(cliente)">
-							<i class="fa  fa-trash"></i>
-						</button>
+						<btn-remove name="" action="removerCliente(cliente)"></btn-remove>
 						<a href="/editCliente/{{cliente.id}}" class="btn  btn-warning btn-xs"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 						<a href="/viewCliente/{{cliente.id}}" class="btn btn-default btn-xs"><i class="fa fa-search" aria-hidden="true"></i></a>
 					</div>

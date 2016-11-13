@@ -1,57 +1,49 @@
-appCliente.controller('clienteController', function($scope, $http, $location, $routeParams, growl) {
+appCliente.controller('clienteController', function($scope, clienteService, $location, $routeParams, growl) {
 
 	$scope.cliente = {};
-	
+
 	$scope.salvarCliente = function(cliente) {
-		
-		if($scope.frmCliente.$valid){
-			if($scope.cliente.id){
-				$http({
-					method : 'PUT',
-					url : '/clientes',
-					data : cliente,
-		
-				}).then(function onSuccessCallBack(response) {
+
+		if ($scope.frmCliente.$valid) {
+			if ($scope.cliente.id) {
+				
+				clienteService.updateCliente(cliente).$promise.then(
+				function(value) {
 					$location.path('/clientes')
 					growl.success("Cliente atualizado com sucesso!");
-				},
-		
-				function onErrorCallBack(response) {
-		
+
+				}, function(error) {
+
 				});
-				
-			}else{
-				$http({
-					method : 'POST',
-					url : '/clientes',
-					data : cliente,
-		
-				}).then(function onSuccessCallBack(response) {
+
+			} else {
+				clienteService.saveCliente(cliente).$promise.then(
+
+				function(value) {
 					$location.path('/clientes')
 					growl.success("Cliente salvo com sucesso!");
-				},
-		
-				function onErrorCallBack(response) {
+
+				}, function(error) {
+
 				});
 			}
-		}else{
+		} else {
 			growl.error("Cliente inválido!");
 		}
 	};
-	
+
 	$scope.cancelarAlteracao = function() {
 		$location.path('/clientes')
-
 	}
-	
-	if($routeParams.clienteId){
-		$http.get("/clientes/"+$routeParams.clienteId).then(function (response){
-			$scope.cliente= response.data;
-			
-		}, function (response){
-			console.log("Erro na requisição "+response);
-			
-		});
+
+	if ($routeParams.clienteId) {
+		clienteService.getById($routeParams.clienteId).$promise.then(
+			function(cliente) {
+				$scope.cliente = cliente;
+
+			}, function(response) {
+				console.log("Erro na requisição " + response);
+			});
 	}
 
 });
