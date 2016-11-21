@@ -2,7 +2,7 @@ angular.module('clienteServices', ['ngResource'])
 
 .factory('resourceService', function($resource) {
 	
-	return $resource('/clientes/:clienteId', null, {
+	return $resource('/admin/clientes/:clienteId', null, {
 		update : {
 			method: 'PUT'
 		}

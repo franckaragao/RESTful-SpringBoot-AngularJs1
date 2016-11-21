@@ -22,6 +22,7 @@ import br.edu.ifpb.ads.ws.service.ClienteService;
  *
  */
 @RestController
+@RequestMapping("/admin")
 public class ClienteController {
 	
 	@Autowired

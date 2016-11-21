@@ -34,9 +34,9 @@ public class LoginController {
 	
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public LoginResponse login(@RequestBody Usuario user) throws ServletException{
-		
+		System.out.println(user);
 		Optional<Usuario> userLogged = userService.findByName(user.getUserNome());
-		
+		System.out.println(userLogged);
 		if(!userLogged.isPresent()){
 			throw new ServletException("Usuário não encontrado.");
 		}

@@ -2,13 +2,12 @@ appCliente.controller('loginController', function ($scope, $http, $location, gro
 	
 	$scope.user = {};
 	
-	$scope.login = function(){
+	$scope.login= function(){
 		
-		$http.post("/login", $scope.user).then( function(response){
+		$http.post("/login", $scope.user).then(function(response){
+			localStorage.setItem("userToken", response.data.token);
 			
-		}, function(response) {
-			
+		} , function(response){
 		});
-		
-	};
+	}
 });
