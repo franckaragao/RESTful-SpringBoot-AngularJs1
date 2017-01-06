@@ -9,12 +9,12 @@
 	<packaging>jar</packaging>
 
 	<name>web-api</name>
-	<description>Demo project for Spring Boot and angularJs</description>
+	<description>Demo project with Spring Boot and angularJs</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.1.RELEASE</version>
+		<version>1.4.3.RELEASE</version>
 		<relativePath />
 	</parent>
 

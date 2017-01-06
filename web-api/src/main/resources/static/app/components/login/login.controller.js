@@ -5,7 +5,7 @@ appCliente.controller('loginController', function ($scope, $http, $location, gro
 	$scope.login= function(){
 		
 		$http.post("/login", $scope.user).then(function(response){
-			localStorage.setItem("userToken", response.data.token);
+			localStorage.setItem("adminToken", response.data.token);
 			
 		} , function(response){
 		});

@@ -32,6 +32,12 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 * @throws ServletException
+	 */
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public LoginResponse login(@RequestBody Usuario user) throws ServletException{
 		System.out.println(user);
@@ -56,6 +62,11 @@ public class LoginController {
 		
 	}
 	
+	/**
+	 * 
+	 * @author franck
+	 *
+	 */
 	private class LoginResponse{
 		public String token;
 		 

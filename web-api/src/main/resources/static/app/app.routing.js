@@ -1,23 +1,23 @@
 appCliente.config(function($routeProvider, $locationProvider) {
 
 	$routeProvider.when("/clientes", {
-		templateUrl : 'view/cliente/clientes.html',
+		templateUrl : 'app/components/cliente/clientes.html',
 		controller : 'clientesController'
 			
 	}).when("/novoCliente", {
-		templateUrl : 'view/cliente/cliente-edit.html',
+		templateUrl : 'app/components/cliente/cliente-edit.html',
 		controller : 'clienteController'
 			
 	}).when("/viewCliente/:clienteId", {
-		templateUrl : 'view/cliente/cliente-detail.html',
+		templateUrl : 'app/components/cliente/cliente-detail.html',
 		controller : 'clienteController'	
 			
 	}).when("/editCliente/:clienteId", {
-		templateUrl : 'view/cliente/cliente-edit.html',
+		templateUrl : 'app/components/cliente/cliente-edit.html',
 		controller : 'clienteController'
 	
 	}).when("/", {
-		templateUrl : 'view/login.html',
+		templateUrl : 'app/components/login/login.html',
 		controller: 'loginController'
 			
 	}).otherwise({
